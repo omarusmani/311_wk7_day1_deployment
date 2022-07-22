@@ -7,18 +7,19 @@ class Connection {
 
       const config = {
         connectionLimit: 100,
-        host: 'localhost',
-        user: 'root',
-        password: 'password',
-        database: 'admin'
+        host: 'database-1.cudh7dxnzbgz.us-east-1.rds.amazonaws.com',
+        user: 'admin',
+        password: 'LELELELE',
+        database: 'test',
+        port:3306
       }
 
-      if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
-        console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
-        config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
-      }
+      // if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
+      //   console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
+      //   config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
+      // }
 
-      this.pool = mysql.createPool(config)
+      // this.pool = mysql.createPool(config)
 
       return this.pool
     }
