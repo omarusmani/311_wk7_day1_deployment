@@ -1,5 +1,6 @@
 const mysql = require('mysql')
-
+require('dotenv').config()
+const{DB_HOST, DB_USER, DB_PASSWORD,DB_PORT,DB_DATABASE}= process.env;
 class Connection {
   constructor() {
     if (!this.pool) {
@@ -7,11 +8,11 @@ class Connection {
 
       const config = {
         connectionLimit: 100,
-        host: 'database-1.cudh7dxnzbgz.us-east-1.rds.amazonaws.com',
-        user: 'admin',
-        password: 'LELELELE',
-        database: 'test',
-        port:3306
+        host: DB_HOST,
+        user: DB_USER,
+        password: DB_PASSWORD,
+        database: DB_DATABASE,
+        port:DB_PORT
       }
 
       // if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
